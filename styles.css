@@ -57,6 +57,7 @@ main {
 }
 
 .save-idea-form {
+  height: 50%;
   background-color: #A9AAD2;
   color: #1F1F3E;
   font-weight: bold;
@@ -120,4 +121,34 @@ h3 {
 
 p {
   color: #1F1F3E;
+}
+
+.comment-section {
+  display: flex;
+}
+
+article {
+
+}
+
+.star {
+  height: 30px;
+  /* display: hidden; */
+}
+
+.star-inactive {
+  height: 30px
+}
+
+.delete {
+  height: 30px;
+}
+
+.delete-inactive {
+  height: 30px;
+  /* display: hidden; */
+}
+
+.comment {
+  height: 30px;
 }
