@@ -41,6 +41,11 @@ h1 {
   border-radius: 1px;
 }
 
+.body-input {
+  border: 2px solid #5356A4;
+  border-radius: 1px;
+}
+
 h3 {
   color: #1F1F3E;
 }
