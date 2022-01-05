@@ -5,10 +5,15 @@ html {
 body {
   background-color: #EAEAF4;
   font-family: 'Open Sans', sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 nav {
   background-color: #1F1F3E;
+  height: 100vh;
+  width: 15%;
 }
 
 h1 {
