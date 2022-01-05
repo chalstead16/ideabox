@@ -18,21 +18,33 @@ nav {
 
 h1 {
   color: #EAEAF4;
+  padding-left: 10%;
 }
 
 .filter {
+  height: 20%;
   border-top: 1px solid #353567;
   border-bottom: 1px solid #353567;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .filter-starred-ideas {
   color: #BFBFDD;
+  padding-left: 10%;
 }
 
 .show-starred-ideas {
   background-color: #5356A4;
   color: #E9E9F3;
   border: 0;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .save-idea-form {
