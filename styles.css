@@ -30,6 +30,12 @@ h1 {
   border: 0;
 }
 
+.save-idea-form {
+  background-color: #A9AAD2;
+  color: #1F1F3E;
+  font-weight: bold;
+}
+
 h3 {
   color: #1F1F3E;
 }
