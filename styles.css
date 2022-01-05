@@ -6,15 +6,23 @@ body {
   background-color: #EAEAF4;
   font-family: 'Open Sans', sans-serif;
 }
+
 nav {
   background-color: #1F1F3E;
 }
+
+h1 {
+  color: #EAEAF4;
+}
+
 .filter-starred-ideas {
   color: #BFBFDD;
 }
+
 h3 {
   color: #1F1F3E;
 }
+
 p {
   color: #1F1F3E;
 }
