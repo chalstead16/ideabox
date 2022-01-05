@@ -46,6 +46,14 @@ h1 {
   border-radius: 1px;
 }
 
+.save-button {
+  background-color: #1F1F3D;
+  border: 2px solid #5356A4;
+  border-radius: 1px;
+  color: #EAEAF4;
+  font-weight: bold;
+}
+
 h3 {
   color: #1F1F3E;
 }
