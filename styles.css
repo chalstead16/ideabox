@@ -54,6 +54,17 @@ h1 {
   font-weight: bold;
 }
 
+.search-field {
+  border: 2px solid #5356A4;
+  border-radius: 1px;
+}
+
+::placeholder {
+  color: #5356A4;
+  opacity: 50%;
+  font-weight: lighter;
+}
+
 h3 {
   color: #1F1F3E;
 }
