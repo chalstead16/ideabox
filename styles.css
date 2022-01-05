@@ -54,9 +54,25 @@ h1 {
   font-weight: bold;
 }
 
+.search {
+  height: 10px;
+}
+
+.search-container {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.search-button {
+  background-color: #1F1F3D;
+
+}
+
 .search-field {
+  height: 100%;
+  width: 100%;
   border: 2px solid #5356A4;
-  border-radius: 1px;
 }
 
 ::placeholder {
