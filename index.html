@@ -14,10 +14,15 @@
   </nav>
   <main>
     <section class="save-idea-form">
-      <label for="title">Title</label>
-      <input type="text" name="title" class="title-input">
-      <label for="body">Body</label>
-      <input type="text" name="body" class="body-input">
+      <div class="form-container">
+        <div class="title-box">
+          <label for="title">Title</label>
+          <input type="text" id="title" class="title-input">
+        </div>
+        <div class="body-box">
+          <label for="body">Body</label>
+          <input type="text" id="body" class="body-input">
+        </div>
       <button class="save-button">Save</button>
       <section class ="search-container">
         <button class="search-button" type="submit">
@@ -25,6 +30,7 @@
         </button>
         <input class="search-field" type="search" name="search-ideas" placeholder="Search ideas">
       </section>
+      </div>
     </section>
     <section class="comment-section">
       <article>
