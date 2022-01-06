@@ -153,7 +153,7 @@ article {
   height: 30px;
   grid-column: 1;
   grid-row: 1;
-  /* visibility: hidden; */
+
 }
 
 .star-inactive {
@@ -174,11 +174,21 @@ article {
   grid-row: 1;
   height: 30px;
   justify-self: end;
-  /* display: none; */
+
 }
 
 .hidden {
   display: none !important;
+}
+
+.card-body {
+  background-color: #ffffff;
+  font-size: 20px;
+  font-weight: lighter;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .comment {
