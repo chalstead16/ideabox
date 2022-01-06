@@ -19,6 +19,14 @@ function saveNewIdea() {
   ideas.unshift(createNewIdea());
 };
 
+function clearTitleInput() {
+  titleInput.value = ``;
+}
+
+function clearBodyInput() {
+  bodyInput.value = ``;
+}
+
 function newIdeaCard() {
   commentSection.innerHTML = ``;
 
@@ -40,6 +48,8 @@ function newIdeaCard() {
         <p>Comment</p>
       </section>
     </article>
-`
+    `
   };
+  clearTitleInput();
+  clearBodyInput();
 };
