@@ -191,6 +191,20 @@ article {
   justify-content: flex-start;
 }
 
+.card-bottom {
+  border-top: solid 2px #5356A4;
+  height: 30px;
+  background-color: #5356A4;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.card-bottom p {
+  color: #E9E9F3;
+  font-weight: bold;
+  font-size: 16px;
+}
 .comment {
   height: 30px;
 }
