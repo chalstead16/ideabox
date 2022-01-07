@@ -238,3 +238,8 @@ article {
 .comment {
   height: 30px;
 }
+
+.hover-properties {
+  background-color: #5356A4;
+  cursor: pointer;
+}

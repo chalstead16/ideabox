@@ -7,16 +7,16 @@ var bodyInput = document.querySelector('.body-input');
 var commentSection = document.querySelector('.comment-section');
 
 //Event listeners
-saveButton.addEventListener('click', saveNewIdea);
-saveButton.addEventListener('click', newIdeaCard);
+saveButton.addEventListener('click', createIdeaCard);
+saveButton.addEventListener('mouseover', saveButtonHover);
 
-function createNewIdea() {
+function newIdeaInstance() {
   var newIdea = new Idea({title: titleInput.value, body: bodyInput.value});
   return newIdea;
 };
 
 function saveNewIdea() {
-  ideas.unshift(createNewIdea());
+  ideas.unshift(newIdeaInstance());
 };
 
 function clearTitleInput() {
@@ -53,3 +53,25 @@ function newIdeaCard() {
   clearTitleInput();
   clearBodyInput();
 };
+
+function saveButtonHover() {
+  if (titleInput.value && bodyInput.value) {
+    enableHoverProperties(saveButton);
+  }
+}
+
+function enableHoverProperties(element) {
+  element.classList.add('hover-properties');
+}
+
+function disableHoverProperties(element) {
+  element.classList.remove('hover-properties');
+}
+
+function createIdeaCard() {
+  if (titleInput.value && bodyInput.value) {
+    saveNewIdea();
+    newIdeaCard();
+    disableHoverProperties(saveButton);
+  }
+}
