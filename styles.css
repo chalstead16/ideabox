@@ -153,7 +153,7 @@ p {
   color: #1F1F3E;
 }
 
-.comment-section {
+.idea-card-section {
   padding-left: 10px;
   padding-top: 10px;
   display: flex;
@@ -179,32 +179,17 @@ article {
 
 }
 
-.star {
+.red-star, .white-star {
   height: 30px;
   grid-column: 1;
   grid-row: 1;
-
 }
 
-.star-inactive {
-  grid-column: 1;
-  grid-row: 1;
-  height: 30px
-}
-
-.delete {
+.red-delete, .white-delete {
   grid-column: 2;
   grid-row: 1;
   height: 30px;
   justify-self: end;
-}
-
-.delete-inactive {
-  grid-column: 2;
-  grid-row: 1;
-  height: 30px;
-  justify-self: end;
-
 }
 
 .hidden {
