@@ -80,9 +80,13 @@ function handleStarClick(event) {
   var whiteStar = document.querySelectorAll('.white-star')
   updateStarState();
   for (var i = 0; i < cards.length; i++) {
-    if (event.target.classList.contains('white-star') && event.target.parentNode.parentNode.id === cards[i].id){
+    if (event.target.classList.contains('white-star') && event.target.parentNode.parentNode.id === cards[i].id) {
       show(redStar[i]);
       hide(whiteStar[i]);
+    }
+    if (event.target.classList.contains('red-star') && event.target.parentNode.parentNode.id === cards[i].id) {
+      show(whiteStar[i]);
+      hide(redStar[i]);
     }
   }
 }
@@ -96,7 +100,7 @@ function hide(element) {
 }
 
 function updateStarState() {
-  var id = event.target.id;
+  var id = event.target.parentNode.parentNode.id;
   for (var i = 0; i < ideas.length; i++) {
     if (ideas[i].id === parseInt(id)) {
       ideas[i].updateIdea();
