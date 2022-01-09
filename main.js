@@ -4,12 +4,14 @@ var ideas = [];
 var saveButton = document.querySelector('.save-button');
 var titleInput = document.querySelector('.title-input');
 var bodyInput = document.querySelector('.body-input');
-var commentSection = document.querySelector('.comment-section');
+var ideaSection = document.querySelector('.idea-card-section');
 
 //Event listeners
 saveButton.addEventListener('click', createIdeaCard);
 saveButton.addEventListener('mouseover', saveButtonHover);
+ideaSection.addEventListener('click', handleStarClick);
 
+//Functions
 function newIdeaInstance() {
   var newIdea = new Idea({title: titleInput.value, body: bodyInput.value});
   return newIdea;
@@ -19,25 +21,22 @@ function saveNewIdea() {
   ideas.unshift(newIdeaInstance());
 };
 
-function clearTitleInput() {
+function clearInputs() {
   titleInput.value = ``;
-}
-
-function clearBodyInput() {
   bodyInput.value = ``;
 }
 
 function newIdeaCard() {
-  commentSection.innerHTML = ``;
+  ideaSection.innerHTML = ``;
 
   for (var i = 0; i < ideas.length; i++) {
-    commentSection.innerHTML += `
-    <article>
+    ideaSection.innerHTML += `
+    <article class="cards" id="${ideas[i].id}">
       <section class="card-top">
-        <img class="star hidden" src="./assets/star-active.svg" alt="starred-idea">
-        <img class="star-inactive" src="./assets/star.svg" alt="starred-idea">
-        <img class="delete-inactive hidden" src="./assets/delete-active.svg" alt="delete-option">
-        <img class="delete" src="./assets/delete.svg" alt="delete-option">
+        <img class="white-star" src="./assets/star.svg" alt="starred-idea">
+        <img class="red-star hidden" src="./assets/star-active.svg" alt="starred-idea">
+        <img class="red-delete hidden" src="./assets/delete-active.svg" alt="delete-option">
+        <img class="white-delete" src="./assets/delete.svg" alt="delete-option">
       </section>
       <section class="card-body">
         <h3>${ideas[i].title}</h3>
@@ -50,8 +49,7 @@ function newIdeaCard() {
     </article>
     `
   };
-  clearTitleInput();
-  clearBodyInput();
+  clearInputs();
 };
 
 function saveButtonHover() {
@@ -73,5 +71,39 @@ function createIdeaCard() {
     saveNewIdea();
     newIdeaCard();
     disableHoverProperties(saveButton);
+  }
+}
+
+function handleStarClick(event) {
+  var cards = document.querySelectorAll('.cards')
+  var redStar = document.querySelectorAll('.red-star')
+  var whiteStar = document.querySelectorAll('.white-star')
+  updateStarState();
+  for (var i = 0; i < cards.length; i++) {
+    if (event.target.classList.contains('white-star') && event.target.parentNode.parentNode.id === cards[i].id) {
+      show(redStar[i]);
+      hide(whiteStar[i]);
+    }
+    if (event.target.classList.contains('red-star') && event.target.parentNode.parentNode.id === cards[i].id) {
+      show(whiteStar[i]);
+      hide(redStar[i]);
+    }
+  }
+}
+
+function show(element) {
+  element.classList.remove('hidden');
+}
+
+function hide(element) {
+  element.classList.add('hidden');
+}
+
+function updateStarState() {
+  var id = event.target.parentNode.parentNode.id;
+  for (var i = 0; i < ideas.length; i++) {
+    if (ideas[i].id === parseInt(id)) {
+      ideas[i].updateIdea();
+    }
   }
 }
