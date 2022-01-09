@@ -12,6 +12,7 @@ saveButton.addEventListener('mouseover', saveButtonHover);
 ideaSection.addEventListener('click', handleStarClick);
 ideaSection.addEventListener('mouseover', deleteImgMouseOver);
 ideaSection.addEventListener('mouseout', deleteImgMouseOut);
+ideaSection.addEventListener('click', deleteIdea);
 
 //Functions
 function newIdeaInstance() {
@@ -76,6 +77,15 @@ function createIdeaCard() {
   }
 }
 
+function updateStarState() {
+  var id = event.target.parentNode.parentNode.id;
+  for (var i = 0; i < ideas.length; i++) {
+    if (ideas[i].id === parseInt(id)) {
+      ideas[i].updateIdea();
+    }
+  }
+}
+
 function handleStarClick(event) {
   var cards = document.querySelectorAll('.cards')
   var redStar = document.querySelectorAll('.red-star')
@@ -101,28 +111,27 @@ function hide(element) {
   element.classList.add('hidden');
 }
 
-function updateStarState() {
+
+function deleteIdeaFromDataModel() {
   var id = event.target.parentNode.parentNode.id;
   for (var i = 0; i < ideas.length; i++) {
     if (ideas[i].id === parseInt(id)) {
-      ideas[i].updateIdea();
+      ideas.splice(i, 1)
     }
   }
 }
 
-// function deleteIdea() {
-//   var id = event.target.parentNode.parentNode.id;
-//   for (var i = 0; i < ideas.length; i++) {
-//     if (ideas[i].id === parseInt(id)) {
-//       deleteImgMouseOver(event);
-//       deleteImgMouseOut(event);
-//     }
-//   }
-// }
-//function for click
-//when I click the white X:
-  //on click it calls deleteIdea() Function
-  //reassign ideaSection(of that ID).innerHTML = '';
+function deleteIdea() {
+  var cards = document.querySelectorAll('.cards')
+  var redDelete = document.querySelectorAll('.red-delete')
+  var whiteDelete = document.querySelectorAll('.white-delete')
+    for (var i = 0; i < cards.length; i++) {
+      if (event.target.classList.contains('red-delete') && event.target.parentNode.parentNode.id === cards[i].id) {
+        deleteIdeaFromDataModel();
+        newIdeaCard();
+    }
+  }
+}
 
 function deleteImgMouseOver(event) {
   var cards = document.querySelectorAll('.cards')
