@@ -8,7 +8,8 @@ var ideaSection = document.querySelector('.idea-card-section');
 
 //Event listeners
 saveButton.addEventListener('click', createIdeaCard);
-saveButton.addEventListener('mouseover', saveButtonHover);
+saveButton.addEventListener('mouseover', saveButtonMouseover);
+saveButton.addEventListener('mouseout', saveButtonMouseOut);
 ideaSection.addEventListener('click', handleStarClick);
 ideaSection.addEventListener('mouseover', deleteImgMouseOver);
 ideaSection.addEventListener('mouseout', deleteImgMouseOut);
@@ -18,11 +19,11 @@ ideaSection.addEventListener('click', deleteIdea);
 function newIdeaInstance() {
   var newIdea = new Idea({title: titleInput.value, body: bodyInput.value});
   return newIdea;
-};
+}
 
 function saveNewIdea() {
   ideas.unshift(newIdeaInstance());
-};
+}
 
 function clearInputs() {
   titleInput.value = ``;
@@ -70,22 +71,34 @@ function newIdeaCard() {
       </article>
       `
     }
-  };
+  }
   clearInputs();
-};
+}
 
-function saveButtonHover() {
+function saveButtonMouseover() {
+  disableHoverProperties(saveButton);
   if (titleInput.value && bodyInput.value) {
     enableHoverProperties(saveButton);
   }
 }
 
+function saveButtonMouseOut() {
+  if (!titleInput.value && !bodyInput.value) {
+    enableHoverProperties(saveButton);
+  }
+  if(titleInput.value && bodyInput.value)
+    disableHoverProperties();
+}
+
+
 function enableHoverProperties(element) {
-  element.classList.add('hover-properties');
+  element.classList.remove('hover-properties-inactive');
+  element.classList.add('hover-properties-active');
 }
 
 function disableHoverProperties(element) {
-  element.classList.remove('hover-properties');
+  element.classList.add('hover-properties-inactive');
+  element.classList.remove('hover-properties-active');
 }
 
 function createIdeaCard() {

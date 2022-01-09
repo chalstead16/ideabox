@@ -109,7 +109,6 @@ label {
   color: #EAEAF4;
   font-weight: bold;
   font-size: 20px;
-  /* width: 50%; */
 }
 
 .search {
@@ -224,7 +223,12 @@ article {
   height: 30px;
 }
 
-.hover-properties {
+.hover-properties-inactive {
   background-color: #5356A4;
+  cursor: default;
+}
+
+.hover-properties-active {
+  background-color: #353567;
   cursor: pointer;
 }
