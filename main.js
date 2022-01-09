@@ -31,26 +31,45 @@ function clearInputs() {
 
 function newIdeaCard() {
   ideaSection.innerHTML = ``;
-
   for (var i = 0; i < ideas.length; i++) {
-    ideaSection.innerHTML += `
-    <article class="cards" id="${ideas[i].id}">
+    if (!ideas[i].star) {
+      ideaSection.innerHTML += `
+      <article class="cards" id="${ideas[i].id}">
       <section class="card-top">
-        <img class="white-star" src="./assets/star.svg" alt="starred-idea">
-        <img class="red-star hidden" src="./assets/star-active.svg" alt="starred-idea">
-        <img class="red-delete hidden" src="./assets/delete-active.svg" alt="delete-option">
-        <img class="white-delete" src="./assets/delete.svg" alt="delete-option">
+      <img class="white-star" src="./assets/star.svg" alt="starred-idea">
+      <img class="red-delete hidden" src="./assets/delete-active.svg" alt="delete-option">
+      <img class="white-delete" src="./assets/delete.svg" alt="delete-option">
       </section>
       <section class="card-body">
-        <h3>${ideas[i].title}</h3>
-        <p>${ideas[i].body}</p>
+      <h3>${ideas[i].title}</h3>
+      <p>${ideas[i].body}</p>
       </section>
       <section class="card-bottom">
-        <img class="comment" src="./assets/comment.svg" alt="comment-option">
-        <p>Comment</p>
+      <img class="comment" src="./assets/comment.svg" alt="comment-option">
+      <p>Comment</p>
       </section>
-    </article>
-    `
+      </article>
+      `
+    }
+    if (ideas[i].star) {
+      ideaSection.innerHTML += `
+      <article class="cards" id="${ideas[i].id}">
+      <section class="card-top">
+      <img class="red-star" src="./assets/star-active.svg" alt="starred-idea">
+      <img class="red-delete hidden" src="./assets/delete-active.svg" alt="delete-option">
+      <img class="white-delete" src="./assets/delete.svg" alt="delete-option">
+      </section>
+      <section class="card-body">
+      <h3>${ideas[i].title}</h3>
+      <p>${ideas[i].body}</p>
+      </section>
+      <section class="card-bottom">
+      <img class="comment" src="./assets/comment.svg" alt="comment-option">
+      <p>Comment</p>
+      </section>
+      </article>
+      `
+    }
   };
   clearInputs();
 };
@@ -87,20 +106,8 @@ function updateStarState() {
 }
 
 function handleStarClick(event) {
-  var cards = document.querySelectorAll('.cards')
-  var redStar = document.querySelectorAll('.red-star')
-  var whiteStar = document.querySelectorAll('.white-star')
   updateStarState();
-  for (var i = 0; i < cards.length; i++) {
-    if (event.target.classList.contains('white-star') && event.target.parentNode.parentNode.id === cards[i].id) {
-      show(redStar[i]);
-      hide(whiteStar[i]);
-    }
-    if (event.target.classList.contains('red-star') && event.target.parentNode.parentNode.id === cards[i].id) {
-      show(whiteStar[i]);
-      hide(redStar[i]);
-    }
-  }
+  newIdeaCard();
 }
 
 function show(element) {
