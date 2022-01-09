@@ -10,6 +10,8 @@ var ideaSection = document.querySelector('.idea-card-section');
 saveButton.addEventListener('click', createIdeaCard);
 saveButton.addEventListener('mouseover', saveButtonHover);
 ideaSection.addEventListener('click', handleStarClick);
+ideaSection.addEventListener('mouseover', deleteImgMouseOver);
+ideaSection.addEventListener('mouseout', deleteImgMouseOut);
 
 //Functions
 function newIdeaInstance() {
@@ -104,6 +106,44 @@ function updateStarState() {
   for (var i = 0; i < ideas.length; i++) {
     if (ideas[i].id === parseInt(id)) {
       ideas[i].updateIdea();
+    }
+  }
+}
+
+// function deleteIdea() {
+//   var id = event.target.parentNode.parentNode.id;
+//   for (var i = 0; i < ideas.length; i++) {
+//     if (ideas[i].id === parseInt(id)) {
+//       deleteImgMouseOver(event);
+//       deleteImgMouseOut(event);
+//     }
+//   }
+// }
+//function for click
+//when I click the white X:
+  //on click it calls deleteIdea() Function
+  //reassign ideaSection(of that ID).innerHTML = '';
+
+function deleteImgMouseOver(event) {
+  var cards = document.querySelectorAll('.cards')
+  var redDelete = document.querySelectorAll('.red-delete')
+  var whiteDelete = document.querySelectorAll('.white-delete')
+  for (var i = 0; i < cards.length; i++) {
+    if (event.target.classList.contains('white-delete') && event.target.parentNode.parentNode.id === cards[i].id) {
+      show(redDelete[i]);
+      hide(whiteDelete[i]);
+    }
+  }
+}
+
+function deleteImgMouseOut(event) {
+  var cards = document.querySelectorAll('.cards')
+  var redDelete = document.querySelectorAll('.red-delete')
+  var whiteDelete = document.querySelectorAll('.white-delete')
+  for (var i = 0; i < cards.length; i++) {
+    if (event.target.classList.contains('red-delete')) {
+      show(whiteDelete[i]);
+      hide(redDelete[i]);
     }
   }
 }
