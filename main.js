@@ -37,7 +37,7 @@ function newIdeaCard() {
       ideaSection.innerHTML += `
       <article class="cards" id="${ideas[i].id}">
       <section class="card-top">
-      <img class="white-star" src="./assets/star.svg" alt="starred-idea">
+      <img class="white-star" id="star" src="./assets/star.svg" alt="starred-idea">
       <img class="red-delete hidden" src="./assets/delete-active.svg" alt="delete-option">
       <img class="white-delete" src="./assets/delete.svg" alt="delete-option">
       </section>
@@ -56,7 +56,7 @@ function newIdeaCard() {
       ideaSection.innerHTML += `
       <article class="cards" id="${ideas[i].id}">
       <section class="card-top">
-      <img class="red-star" src="./assets/star-active.svg" alt="starred-idea">
+      <img class="red-star" id="star" src="./assets/star-active.svg" alt="starred-idea">
       <img class="red-delete hidden" src="./assets/delete-active.svg" alt="delete-option">
       <img class="white-delete" src="./assets/delete.svg" alt="delete-option">
       </section>
@@ -112,7 +112,7 @@ function createIdeaCard() {
 function updateStarState() {
   var id = event.target.parentNode.parentNode.id;
   for (var i = 0; i < ideas.length; i++) {
-    if (ideas[i].id === parseInt(id)) {
+    if (ideas[i].id === parseInt(id) && event.target.id === 'star') {
       ideas[i].updateIdea();
     }
   }
