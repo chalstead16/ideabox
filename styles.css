@@ -12,10 +12,11 @@ body {
   justify-content: flex-start;
 }
 
+ /* ######### Nav ######### */
 nav {
   background-color: #1F1F3E;
   height: 100vh;
-  width: 15%;
+  width: 20%;
 }
 
 h1 {
@@ -50,12 +51,12 @@ h1 {
   font-size: 20px;
 }
 
+ /* ######### Save Ideas Form ######### */
 main {
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
-
 }
 
 .save-idea-form {
@@ -89,15 +90,12 @@ label {
 
 .title-input {
   height: 50px;
-  /* width: 50%; */
   border: 1px solid #353567;
   border-radius: 1px;
-
 }
 
 .body-input {
   height: 100px;
-  /* width: 50%; */
   border: 1px solid #353567;
   border-radius: 1px;
 }
@@ -120,14 +118,12 @@ label {
   height: 50px;
   display: flex;
   padding-bottom: 1%;
-  /* width: 50%; */
 }
 
 .search-button {
   background-color: #353567;
   border: none;
   width: 50px;
-
 }
 
 .search-field {
@@ -145,18 +141,7 @@ label {
   font-family: 'Open Sans', sans-serif;
 }
 
-h3 {
-  color: #1F1F3E;
-  margin-bottom: 15px;
-  overflow-wrap: break-word;
-}
-
-.card-body p {
-  color: #1F1F3E;
-  margin-top: 0;
-  overflow-wrap: break-word;
-}
-
+ /* ######### Idea Cards ######### */
 .idea-card-section {
   padding-left: 10px;
   padding-top: 10px;
@@ -195,10 +180,6 @@ article {
   justify-self: end;
 }
 
-.hidden {
-  display: none !important;
-}
-
 .card-body {
   background-color: #ffffff;
   font-size: 20px;
@@ -208,6 +189,18 @@ article {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+
+h3 {
+  color: #1F1F3E;
+  margin-bottom: 15px;
+  overflow-wrap: break-word;
+}
+
+.card-body p {
+  color: #1F1F3E;
+  margin-top: 0;
+  overflow-wrap: break-word;
 }
 
 .card-bottom {
@@ -227,6 +220,7 @@ article {
   height: 30px;
 }
 
+ /* ######### DOM Manipulation Properties ######### */
 .hover-properties-inactive {
   background-color: #5356A4;
   cursor: default;
@@ -235,4 +229,8 @@ article {
 .hover-properties-active {
   background-color: #353567;
   cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
 }
