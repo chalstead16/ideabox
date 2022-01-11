@@ -4,6 +4,7 @@ html {
 }
 
 body {
+  margin: 0;
   background-color: #EAEAF4;
   font-family: 'Open Sans', sans-serif;
   display: flex;
@@ -146,10 +147,14 @@ label {
 
 h3 {
   color: #1F1F3E;
+  margin-bottom: 15px;
+  overflow-wrap: break-word;
 }
 
-p {
+.card-body p {
   color: #1F1F3E;
+  margin-top: 0;
+  overflow-wrap: break-word;
 }
 
 .idea-card-section {
@@ -166,7 +171,7 @@ p {
 article {
   margin: 10px;
   border: solid 2px #1F1F3E;
-  width: 25%;
+  width: 230px;
   display: flex;
   flex-direction: column;
 }
@@ -175,7 +180,6 @@ article {
   border-bottom: solid 2px #1F1F3E;
   background-color: #1F1F3E;
   display: grid;
-
 }
 
 .red-star, .white-star {
@@ -200,6 +204,7 @@ article {
   font-size: 20px;
   font-weight: lighter;
   padding-left: 10px;
+  padding-right: 25px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -210,7 +215,6 @@ article {
   height: 30px;
   background-color: #5356A4;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
 }
 
